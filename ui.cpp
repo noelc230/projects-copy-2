@@ -7,7 +7,7 @@ int main()
 {
     int height; 
     char a;
-    char filename [80];
+    char filename [80]; // probably not needed
     mapmanip manip;
     string target;
     bool error = false;
@@ -46,7 +46,7 @@ while(true){
         // Add Player
         case 'a' :
         cout << "New players first name, last name and Year of Birth: ";
-        manip.input_pair(); //Should add name to map
+        manip.input_pair(cin); //Should add name to map
       break;
         //Edit
          case 'e':
@@ -79,7 +79,8 @@ while(true){
         break;
     }
     cout << static_cast<char> (12);
-    bool error = manip.display(); // need to make manip.display output error
+    /* error = */
+    manip.display(); // need to make manip.display output error
     if (error){
        cout << "Can't find" << target << endl;
        error = false;

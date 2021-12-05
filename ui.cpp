@@ -13,7 +13,7 @@ int main()
     bool error = false;
     int season_yr;
     string answer;
-    Student newStudent;
+    
     
 
 cout << "How high should the window be?";
@@ -52,12 +52,11 @@ while(true){
         cout << "You entered that this new student is registered";
         //cin >> Not sure how to assign registration status here
 
-        //Print
-        case 'g':
-        for(auto it = mapmanip.cbegin(); it != mapmanip.cend(); ++it)
-        {
-        std::cout << it->first << " " << it->second.first << " " << it->second.second << "\n";
-        }
+        //Edit
+         case 'e':
+        //Need to ask thorpe about this
+        
+
         //Next
         case 'n': 
         manip.next();

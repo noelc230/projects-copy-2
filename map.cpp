@@ -32,9 +32,10 @@ void mapmanip::input_pair(istream &in)
  string lname;                                                                       
  string fname;                                                                       
 int YoB;                                                                             
- in >> fname >> lname;                                                              
+     cout << "First and Last name:" ;                                                         
   student.inputname(in);                                                               
- student.inputYoB(in);                                                                 
+  student.inputYoB(in);     
+                                                            
     m.insert(pair <string, Student> (lname + fname, student));                       
  }
 

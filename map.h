@@ -1,6 +1,7 @@
 #include <iostream>                                                                  
 #include <map>                                                                       
-#include <fstream>                                                                   
+#include <fstream> 
+#include "classbuild.h"                                                                  
                                                                                      
 class mapmanip                                                                       
 {                                                                                    

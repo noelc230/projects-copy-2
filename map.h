@@ -1,8 +1,14 @@
 #include <iostream>                                                                  
 #include <map>                                                                       
+<<<<<<< HEAD
 #include <fstream>                                                                   
 #include "classbuild.h"
 
+=======
+#include <fstream> 
+#include "classbuild.h"                                                                  
+                                                                                     
+>>>>>>> ecb2cedc01719d9513f07293c8dba065e9699f67
 class mapmanip                                                                       
 {                                                                                    
 public:                                                                              

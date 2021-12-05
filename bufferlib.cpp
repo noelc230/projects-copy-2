@@ -3,6 +3,7 @@
 #include <fstream>
 #include <cstring>
 #include "map.h" //originally buffer.h
+#include "buffer.h"
 using namespace std;
 
 const string long_dash(50 , '_');

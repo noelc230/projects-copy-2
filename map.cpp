@@ -32,7 +32,7 @@ void mapmanip::input_pair(istream &in)
  string lname;                                                                       
  string fname;                                                                       
 int YoB;                                                                             
- in >> fname >> lname;                                                              
+                                                             
   student.inputname(in);                                                               
  student.inputYoB(in);                                                                 
     m.insert(pair <string, Student> (lname + fname, student));                       
@@ -81,7 +81,7 @@ void mapmanip::erase() {
 } // map supports some kind of erase .... may need to edit 
 
 bool mapmanip :: search (string s) {
-    for (auto itr = map.begin(); itr != map.end(); itr++) { //maybe use iterator... itr = map.begin 
+    for (auto itr = m.begin(); itr != m.end(); itr++) { //maybe use iterator... itr = map.begin 
     //.... through to map.end searching for string index(most likely first name)
         //if (buff[i].find(s) != string :: npos)
          {if ((itr -> first) != m.find(s))

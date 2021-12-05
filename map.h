@@ -6,7 +6,7 @@ class mapmanip
 {                                                                                    
 public:                                                                              
                                                                                      
-  void input_pair();                                                                 
+  void input_pair(istream &in);                                                                 
   void output();                                                           
   void copymap() 
   {std::map<std::string, Student> m1(m);}   
@@ -22,8 +22,8 @@ public:
         void jump(int l);
         void insert (const std::string & instring);
         void erase();
-        void replace (const std :: string &restring);
-        bool save (char filename []);  //most likely saves to a file must write
+        void replace (const Student &student);
+        bool save ();  //most likely saves to a file must write
         //a function to recove file contents
 
 

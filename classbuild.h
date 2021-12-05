@@ -14,8 +14,8 @@ public:
   void IsInUx(const int &season_yr); // changes value of private Ux to some string i\
 ndicated by the division names... list of if statements... subtracts season_yr by Yo\
 B                                                                                    
-      void inputname(istream &in){std::in >> fname >> lname;}                                  
-      void inputYoB(istream &in){std::in >> YoB;}                                              
+      void inputname(std::istream &in){in >> fname >> lname;}                                  
+      void inputYoB(std::istream &in){in >> YoB;}                                              
 // what would i like with this? ... I would like to take some season year - some yea\
 r of birth and get the int... then maybe create a vector of vectors????              
 //such that takes the season year if defined in UI... then seasonyear-yob            

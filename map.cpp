@@ -94,6 +94,7 @@ void mapmanip :: search (string s) {
     return 1;
 } //needed but will be somewhat different.... will search by key
 // need to have an output parameter to display 
+// probably wont return 1 or 0
 
 void mapmanip:: next() {
     top_line += height;
@@ -108,7 +109,9 @@ void mapmanip::prev() {
 bool mapmanip::open () {
     string line;
     ifstream instr;
-    buff.clear();
+    m.clear();
+    cout << "Filename:";
+    cin >> filename;
     instr.open(filename);
     while (getline (instr, line)) buff.push_back(line); // cant do that right now
     instr.close();
@@ -133,13 +136,13 @@ void mapmanip :: display() {
     maxline = top_line + height;
     if (maxline > m.size()) maxline = m.size();
 
-    cout << long_dash << endl;
+    cout << long_dash << endl; //need longdash back... not sure where it went
     for ( int i = top_line; i < maxline; i++) 
     {
         if (i == pointer_line) cout << " > "; else cout << " ";
         if ( i< 9) cout << " " ;
         auto itr = m.begin() + i;
-        Student student = (itr -> second)
+        Student student = (itr -> second);
         cout << i+1 << " " ; student.getYoB(); student.getUx(); student.getreg_status(); << endl;
     }
     cout << long_dash << endl;

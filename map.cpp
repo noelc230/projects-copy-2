@@ -26,7 +26,7 @@ bool mapmanip::save()         //need new UI to confirm why it is a bool
 }                                                                                    
                                                                                      
                                                                                      
-void mapmanip::input_pair(istream &in)                                                   
+void mapmanip::input_pair(istream &in) // is fine                                           
 {                                                                                    
  Student student;                                                                    
  string lname;                                                                       
@@ -37,14 +37,8 @@ cout << "First and Last name:" ;
   student.inputname(in);                                                               
   student.inputYoB(in);     
 student.regstatus();                                    
-    m.insert(pair <string, Student> (lname + fname, student));                       
+    m.insert(pair <string, Student> (student.get_lname() + " " + student.get_fname(), student)); //the get_names return strings                      
  }
-
- void mapmanip:: next() {
-    top_line += height;
-    if (top_line > m.size() - height) top_line = m.size() - height;
- }
-
 
 
  void mapmanip :: jump (int l) {
@@ -52,19 +46,22 @@ student.regstatus();
     if ( l < 0) l = 0;
     top_line = pointer_line = l-1;
 }
+//dont think we need
 
-void mapmanip :: down ()
+void mapmanip :: next ()
 {
     if (pointer_line == (m.size() + 1)) return;
     pointer_line--;
     if ( pointer_line < top_line) top_line--;
 }
+// works fine .. should work in search
 
-void mapmanip:: up () {
+void mapmanip:: prev () {
     if (pointer_line == 0) return;
     pointer_line --;
     if (pointer_line < top_line) top_line --;
 }
+//should work in search... is actually next
 
 /*void Buffer :: insert (const string &instring){
     buff.insert (buff.begin() + pointer_line , instring); // map does not support an insert function... 
@@ -95,16 +92,6 @@ void mapmanip :: search (string s) {
 } //needed but will be somewhat different.... will search by key
 // need to have an output parameter to display 
 // probably wont return 1 or 0
-
-void mapmanip:: next() {
-    top_line += height;
-    if (top_line > m.size() - height) top_line = m.size() - height;
-} 
-
-void mapmanip::prev() {
-    top_line -=height;
-    if (top_line < 0) top_line = 0;
-}
 
 bool mapmanip::open () {
     string line;
@@ -147,3 +134,18 @@ void mapmanip :: display() {
     }
     cout << long_dash << endl;
     } // the really hard stuff
+
+void mapmanip::begin_new_season()
+    {
+        string answer;
+        cout << "Would you like to start a new season? (Y/N)";
+        cin >> answer;
+        if (answer.substr(0) == "Y" || answer.substr(0) == "y")
+        {
+        cout << "What year is this season?";
+        cin >> season_yr;
+        m.clear();
+        }
+        else return;
+
+    }

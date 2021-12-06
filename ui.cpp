@@ -12,45 +12,36 @@ int main()
     int season_yr;
     string answer;
     
-    
-
-cout << "How high should the window be?";
-cin >> height;
-manip.set_height(height);
+    //dont think we need an option for height
 
 while(true){
-    cout << "(q)uit (s)earch (d)isplay (p)rint";// need to update
+    cout << "(a)dd (b)egin_new_season (q)uit (s)earch (d)isplay (p)rint";// need to update
     cin >> a;
+    // quit makes use of save function and returns 0
     cin.get();
     switch (a) {
-        
-        //Open
-        case 'o':
-        manip.open(); //not sure if we need an open switch... save essentially does this
-        break;
-
+      
         //b for beginning , asking user for year
         case 'b': 
-        cout << "Would you like to start a new season?";
-        cin >> answer;
-        if (answer.substr(0) == "Y" || answer.substr(0) == "y")
-        cout << "What year is this season?";
-        cin >> season_yr;
+       manip.begin_new_season(); // works
         break;
 
-
-        // Add Player
+     // Add Player
         case 'a' :
-        manip.input_pair(cin); //Should add name to map
+        manip.input_pair(cin); //works
       break;
-        //Edit
-         case 'e':
-         break;
-        //Need to ask thorpe about this
+
+        case 'p': 
+        manip.print();  //prints into a file //no need to put filename here 
+        break;
 
         //Quit
         case 'q':
         return 0;
+        break;
+
+        case 'd':
+        manip.display();
         break;
 
         //Search
@@ -61,7 +52,7 @@ while(true){
         manip.search(target);
         while(true)
              {
-         cout << "(n)ext (p)revious (e)dit p(r)int e(x)it" ; //something like this probably more stuff
+         cout << "(n)ext (p)revious (e)dit p(r)int e(x)it (s)top" ; //something like this probably more stuff
         cin >> a;
         switch(a){
 

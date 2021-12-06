@@ -6,7 +6,8 @@ class Student {  //every student has an analogous object of class student
                                                                                      
 public:                                                                              
   void regstatus(); //may not need values in ()                                      
-  void getname(){std::cout << fname << " " << lname << std::endl;}                   
+  std::string get_lname(){return lname;}   
+  std::string get_fname(){return fname;}                
   void getYoB(){std::cout << YoB << std::endl;}                                      
   void getUx(){std::cout << Ux;}                                                     
   void getreg_status(){if(reg_status) std::cout << "Registered";                     

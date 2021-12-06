@@ -12,10 +12,11 @@ public:
   void copymap() 
   {std::map<std::string, Student> m1(m);}   
 
+        void begin_new_season();
         void next();
         void prev();
         bool open (); // need to integrate with outputintofile function
-        void display();
+        void display(); // display statistics 
         void set_height(int h) {height = h;}
         void search (std :: string target);
         void up();
@@ -36,6 +37,6 @@ private:
         int top_line = 0;
         int pointer_line = 0;
         int height = 5;                               
-                                                                                     
+        int season_yr;                                                                          
                                                                                      
 };

@@ -13,9 +13,7 @@ int main()
     string answer;
     
     //dont think we need an option for height
-    
 
-cout << "Welcome to soccer team creator."; // Make this Start new season
 while(true){
     cout << "(a)dd (b)egin_new_season (q)uit (s)earch (d)isplay (p)rint";// need to update
     cin >> a;

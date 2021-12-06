@@ -80,10 +80,8 @@ while(true){
         return 0;
         break;
 
-        default:
-        break;
+     
         }
-
         break;
         default:
         break;

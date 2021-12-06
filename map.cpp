@@ -82,7 +82,7 @@ void mapmanip::erase() {
     m.erase (m.begin() + (pointer_line-1));
 } // map supports some kind of erase .... may need to edit 
 
-bool mapmanip :: search (string s) {
+void mapmanip :: search (string s) {
     for (auto itr = m.begin(); itr != m.end(); itr++) { //maybe use iterator... itr = map.begin 
     //.... through to map.end searching for string index(most likely first name)
         //if (buff[i].find(s) != string :: npos)

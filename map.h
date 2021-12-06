@@ -17,7 +17,7 @@ public:
         bool open (); // need to integrate with outputintofile function
         void display();
         void set_height(int h) {height = h;}
-        bool search (std :: string target);
+        void search (std :: string target);
         void up();
         void down();
         void jump(int l);

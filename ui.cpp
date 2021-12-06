@@ -21,7 +21,7 @@ cin >> height;
 manip.set_height(height);
 
 while(true){
-    cout << "add next previous open quit search";
+    cout << "(a)dd (n)ext (p)revious (o)pen (q)uit (s)earch";// need to update
     cin >> a;
     cin.get();
     switch (a) {
@@ -45,16 +45,27 @@ while(true){
 
         // Add Player
         case 'a' :
-        cout << "New players first name, last name and Year of Birth: ";
         manip.input_pair(cin); //Should add name to map
       break;
         //Edit
          case 'e':
          break;
         //Need to ask thorpe about this
-        
 
-        //Next
+        //Quit
+        case 'q':
+        return 0;
+        break;
+
+        //Search
+        case 's':
+        // need to put switch statement stuff here instead of outside
+        //main view only shows stats and prelimiary options
+        cin >> target;
+        manip.search(target);
+        while(true)
+            {
+         cout << "(n)ext (p)revious (q)uit" ; //something like this probably more stuff
         case 'n': 
         manip.next();
         break;
@@ -69,11 +80,10 @@ while(true){
         return 0;
         break;
 
-        //Search
-        case 's':
-        cout << "Target: ";
-        cin >> target;
-        error = manip.search(target);
+        default:
+        break;
+        }
+
         break;
         default:
         break;

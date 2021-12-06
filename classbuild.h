@@ -9,9 +9,9 @@ public:
   std::string get_lname(){return lname;}   
   std::string get_fname(){return fname;}                
   void getYoB(){std::cout << YoB << std::endl;}                                      
-  void getUx(){std::cout << Ux;}                                                     
-  void getreg_status(){if(reg_status) std::cout << "Registered";                     
-    else std::cout << "Not Registered";}                                             
+  std::string getUx(){return(Ux);}                                                     
+  std::string getreg_status(){if(reg_status) return("Registered");                     
+    return("Not Registered");}                                             
   void IsInUx(const int &season_yr); // changes value of private Ux to some string i\
 ndicated by the division names... list of if statements... subtracts season_yr by Yo\
 B                                                                                    

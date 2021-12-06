@@ -27,7 +27,7 @@ public:
         void replace (const Student &student);
         bool save ();  //most likely saves to a file must write
         //a function to recove file contents
-        void print();
+        void main_print();
 
   // make sure to make a .clear for screen when outputting file contents to dipplay  
                                                                                      

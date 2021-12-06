@@ -19,7 +19,7 @@ cin >> height;
 manip.set_height(height);
 
 while(true){
-    cout << /*(a)dd (n)ext (p)revious (o)pen*/ "(q)uit (s)earch d)isplay";// need to update
+    cout << "(q)uit (s)earch (d)isplay (p)rint";// need to update
     cin >> a;
     cin.get();
     switch (a) {

@@ -23,9 +23,7 @@ bool mapmanip::save()         //need new UI to confirm why it is a bool
       return false;                  
     }                                                                                
  // ask professor                                                                    
-}                                                                                    
-                                                                                     
-                                                                                     
+}                                                                                                                                                                 
 void mapmanip::input_pair(istream &in) // is fine                                           
 {                                                                                    
  Student student;                                                                    
@@ -36,11 +34,9 @@ int YoB;
 cout << "First and Last name:" ;                                                         
   student.inputname(in);                                                               
   student.inputYoB(in);     
-student.regstatus();                                    
-    m.insert(pair <string, Student> (student.get_lname() + " " + student.get_fname(), student)); //the get_names return strings                      
+  student.regstatus();                                    
+  m.insert(pair <string, Student> (student.get_lname() + " " + student.get_fname(), student)); //the get_names return strings                      
  }
-
-
  void mapmanip :: jump (int l) {
     if ( l > (m.size () + 1)) l = m.size() + 1;
     if ( l < 0) l = 0;
@@ -149,3 +145,38 @@ void mapmanip::begin_new_season()
         else return;
 
     }
+void mapmanip:: main_print()
+{
+    cout << "filename :";
+    cin >> filename;
+    Student student;
+    for(auto itr = m.begin(); itr != m.end(); itr++)
+{
+    student = (itr -> second);
+    if(student.getUx() == "U17")
+    {
+    std::cout << "U17\n" << student.get_fname() + " " + student.get_lname() + " " + student.getreg_status();
+    }
+    if(student.getUx() == "U14")
+    {
+    std::cout << "U14\n" << student.get_fname() + " " + student.get_lname() + " " + student.getreg_status();
+    }
+    if(student.getUx() == "U12")
+    {
+    std::cout << "U12\n" << student.get_fname() + " " + student.get_lname() + " " + student.getreg_status();
+    }
+    if(student.getUx() == "U10")
+    {
+    std::cout << "U10\n" << student.get_fname() + " " + student.get_lname() + " " + student.getreg_status();
+    }
+    if(student.getUx() == "U8")
+    {
+    std::cout << "U8\n" << student.get_fname() + " " + student.get_lname() + " " + student.getreg_status();
+    }
+    if(student.getUx() == "U6")
+    {
+    std::cout << "U6\n" << student.get_fname() + " " + student.get_lname() + " " + student.getreg_status();
+    }
+}
+
+}

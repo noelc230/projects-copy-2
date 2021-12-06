@@ -7,10 +7,8 @@ int main()
 {
     int height; 
     char a;
-    char filename [80]; // probably not needed
     mapmanip manip;
     string target;
-    bool error = false;
     int season_yr;
     string answer;
     
@@ -21,16 +19,14 @@ cin >> height;
 manip.set_height(height);
 
 while(true){
-    cout << "(a)dd (n)ext (p)revious (o)pen (q)uit (s)earch";// need to update
+    cout << /*(a)dd (n)ext (p)revious (o)pen*/ "(q)uit (s)earch d)isplay";// need to update
     cin >> a;
     cin.get();
     switch (a) {
         
         //Open
         case 'o':
-        cout << "Filename : ";
-        cin >> filename;
-        manip.open();
+        manip.open(); //not sure if we need an open switch... save essentially does this
         break;
 
         //b for beginning , asking user for year
@@ -64,8 +60,11 @@ while(true){
         cin >> target;
         manip.search(target);
         while(true)
-            {
-         cout << "(n)ext (p)revious (q)uit" ; //something like this probably more stuff
+             {
+         cout << "(n)ext (p)revious (e)dit p(r)int e(x)it" ; //something like this probably more stuff
+        cin >> a;
+        switch(a){
+
         case 'n': 
         manip.next();
         break;
@@ -75,20 +74,27 @@ while(true){
         manip.prev();
         break;
 
-        //Quit
-        case 'q':
-        return 0;
+        case 'r':
+        manip.print(); // not written yet
         break;
 
-     
-        }
+        //Quit
+        case 'x':
+        return 0;
+        break;
+             }
+             
+             }
+
         break;
         default:
         break;
     }
+
+}
     cout << static_cast<char> (12);
     /* error = */
-    manip.display(); // need to make manip.display output error
+    manip.display(); // most likely not needed here
     if (error){
        cout << "Can't find" << target << endl;
        error = false;

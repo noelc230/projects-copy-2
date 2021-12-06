@@ -21,12 +21,12 @@ public:
         void up();
         void down();
         void jump(int l);
-        void insert (const std::string & instring);
+       /* void insert (const std::string & instring); */// wrong need to integrate
         void erase();
         void replace (const Student &student);
         bool save ();  //most likely saves to a file must write
         //a function to recove file contents
-
+        void print();
 
   // make sure to make a .clear for screen when outputting file contents to dipplay  
                                                                                      

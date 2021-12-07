@@ -83,13 +83,9 @@ while(true){
     }
 
 }
-    cout << static_cast<char> (12);
-    /* error = */
-    manip.display(); // most likely not needed here
-    if (error){
-       cout << "Can't find" << target << endl;
-       error = false;
+     cout << static_cast<char> (12);
+    
+    manip.display(); */
+// most likely not needed here
     }
-}
 
-}

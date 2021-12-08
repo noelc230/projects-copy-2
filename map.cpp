@@ -26,17 +26,23 @@ bool mapmanip::save()         //need new UI to confirm why it is a bool
  // ask professor                                                                    
 }                                                                                    
 
-void mapmanip::search_print()  
+void mapmanip::search_print()  //writes to a file // done
 {
+    string filename;
+   cout << "Filename: ";
+    cin >> filename;
+ofstream out;
+out.open(filename);
+if(!out)
+{cout << "Error" << endl; return;}
 
-for (auto itr = v.begin(); itr != v.end(); itr++)
-{
-    Student student = itr*;
-
+for (Student i : v) // should work ... I think ... runs through v and outputs every element as i
+{ // not sure vscode automatically uses range-based
+   out << i.get_fname() + i.get_lname() + i.getreg_status() + i.getUx();
 
 }
 
-
+out.close();
 
 }
 

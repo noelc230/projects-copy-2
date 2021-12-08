@@ -62,7 +62,7 @@ std::vector<Student> mapmanip::print_if(iterator start, iterator stop, BinaryPre
  out, T item)         
 {   
     std::vector<Student> v1;                                                       
-  for(itr = start; itr != stop; itr++)                                     
+  for(auto itr = start; itr != stop; itr++)                                     
     {                                                                           
       if(condition((itr*), item))                                                       
         {v1.push_back(itr*)}                                                         

@@ -66,7 +66,7 @@ while(true){
         break;
 
         case 'r':
-        /*manip.print();*/ // not written yet
+        manip.search_print();
         break;
 
         //Quit
@@ -84,4 +84,3 @@ while(true){
 
 }
 } 
-

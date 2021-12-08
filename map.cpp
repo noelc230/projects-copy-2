@@ -45,6 +45,7 @@ for (Student i : v) // should work ... I think ... runs through v and outputs ev
 out.close();
 
 }
+                                                                                                                                                        
 
 void mapmanip::input_pair(istream &in) // is fine                                           
 {                                                                                    
@@ -56,8 +57,8 @@ int YoB;
 cout << "First and Last name:" ;                                                         
   student.inputname(in);                                                               
   student.inputYoB(in);     
-student.regstatus();                                    
-    m.insert(pair <string, Student> (student.get_lname() + " " + student.get_fname(), student)); //the get_names return strings                      
+  student.regstatus();                                    
+  m.insert(pair <string, Student> (student.get_lname() + " " + student.get_fname(), student)); //the get_names return strings                      
  }
 
 void mapmanip :: search_map() {
@@ -69,6 +70,7 @@ string name;
         cout << "Would you like to search by (n)ame, (c)ategory, (y)ear of birth, or (r)egistered"; // need to specify registered or not registered
         char a;
         cin >> a; 
+
 
     if(a == 'n'){
         cin >> name;
@@ -161,6 +163,7 @@ void mapmanip::begin_new_season()
 
     }
 
+
 bool mapmanip::if_name(Student student, std::string &name)
 {
 if (student.get_lname() == name) return 1;
@@ -181,5 +184,41 @@ bool mapmanip::if_Ux(Student student, std::string &Ux1)
 {
 if (student.getUx() == Ux1) return 1;
 else return 0;
+}
+
+void mapmanip:: main_print()
+{
+    cout << "filename :";
+    cin >> filename;
+    Student student;
+    for(auto itr = m.begin(); itr != m.end(); itr++)
+{
+    student = (itr -> second);
+    if(student.getUx() == "U17")
+    {
+    std::cout << "U17\n" << student.get_fname() + " " + student.get_lname() + " " + student.getreg_status();
+    }
+    if(student.getUx() == "U14")
+    {
+    std::cout << "U14\n" << student.get_fname() + " " + student.get_lname() + " " + student.getreg_status();
+    }
+    if(student.getUx() == "U12")
+    {
+    std::cout << "U12\n" << student.get_fname() + " " + student.get_lname() + " " + student.getreg_status();
+    }
+    if(student.getUx() == "U10")
+    {
+    std::cout << "U10\n" << student.get_fname() + " " + student.get_lname() + " " + student.getreg_status();
+    }
+    if(student.getUx() == "U8")
+    {
+    std::cout << "U8\n" << student.get_fname() + " " + student.get_lname() + " " + student.getreg_status();
+    }
+    if(student.getUx() == "U6")
+    {
+    std::cout << "U6\n" << student.get_fname() + " " + student.get_lname() + " " + student.getreg_status();
+    }
+}
+
 }
 

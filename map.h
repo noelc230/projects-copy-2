@@ -35,6 +35,7 @@ public:
         bool if_YoB(Student student, int YoB);
         bool if_regstatus(Student student, std::string regstatus);
         bool if_Ux(Student student, std::string &Ux1);
+        void main_print();
 
   // make sure to make a .clear for screen when outputting file contents to dipplay  
   

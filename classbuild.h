@@ -8,10 +8,12 @@ public:
   void regstatus(); //may not need values in ()                                      
   std::string get_lname(){return lname;}   
   std::string get_fname(){return fname;}                
+
   int getYoB(){return(YoB);}                                      
   std::string getUx(){return(Ux);}                                                     
   string getreg_status(){if(reg_status) return("Registered");                     
     else return ("Not Registered") ;}                                             
+
   void IsInUx(const int &season_yr); // changes value of private Ux to some string i\
 ndicated by the division names... list of if statements... subtracts season_yr by Yo\
 B                                                                                    

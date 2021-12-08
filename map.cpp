@@ -26,6 +26,20 @@ bool mapmanip::save()         //need new UI to confirm why it is a bool
  // ask professor                                                                    
 }                                                                                    
 
+void mapmanip::search_print()  
+{
+
+for (auto itr = v.begin(); itr != v.end(); itr++)
+{
+    Student student = itr*;
+
+
+}
+
+
+
+}
+
 void mapmanip::input_pair(istream &in) // is fine                                           
 {                                                                                    
  Student student;                                                                    

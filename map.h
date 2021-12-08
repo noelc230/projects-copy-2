@@ -49,7 +49,7 @@ std::vector<Student> mapmanip::print_if(iterator start, iterator stop, BinaryPre
  out, T item)         
 {   
   std::vector<Student> v1;                                                           
-  for(typename std::map<string,Student>::itr = start; itr != stop; itr++)                                     
+  for(typename std::map<string,Student>::iterator::itr = start; itr != stop; itr++)                                     
     {                                                                           
       if(condition((itr -> second), item))                                                       
         {v1.push_back(itr->second)}                                                         
@@ -78,6 +78,5 @@ private:
         int top_line = 0;
         int pointer_line = 0;
         int height = 5;                               
-        int season_yr;                                                                          
-        std::vector<std::string> search;                                                                        
+        int season_yr;                                                                                                                                            
 };

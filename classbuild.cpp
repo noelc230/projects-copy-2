@@ -14,7 +14,7 @@ void Student :: regstatus()
       { reg_status = true;}                                                          
   }                                                                                  
                                                                                      
-void Student :: IsInUx(const int &season_yr)                                         
+void Student :: IsInUx(const int &season_yr)  //have to include to add                                   
 {                                                                                    
   if(((season_yr - YoB) < 6) && ((season_yr - YoB) >=4))                             
     {Ux = "U6";}                                                                     

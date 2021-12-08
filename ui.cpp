@@ -32,7 +32,7 @@ while(true){
       break;
 
         case 'p': 
-        manip.print();  //prints into a file //no need to put filename here 
+        /*manip.print();*/  //prints into a file //no need to put filename here 
         break;
 
         //Quit
@@ -48,8 +48,8 @@ while(true){
         case 's':
         // need to put switch statement stuff here instead of outside
         //main view only shows stats and prelimiary options
-        cin >> target;
-        manip.search(target);
+       
+        manip.search_map();
         while(true)
              {
          cout << "(n)ext (p)revious (e)dit p(r)int e(x)it (s)top" ; //something like this probably more stuff
@@ -66,7 +66,7 @@ while(true){
         break;
 
         case 'r':
-        manip.print(); // not written yet
+        /*manip.print();*/ // not written yet
         break;
 
         //Quit
@@ -83,9 +83,5 @@ while(true){
     }
 
 }
-     cout << static_cast<char> (12);
-    
-    manip.display(); */
-// most likely not needed here
-    }
+} 
 

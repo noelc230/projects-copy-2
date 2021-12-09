@@ -1,6 +1,5 @@
 #include <iostream>                                                                  
-#include <map>                                                                       
-#include "classbuild.h"                                                              
+#include <map>                                                                                                                                
 #include <fstream>                                                                   
 #include "map.h"
 
@@ -65,7 +64,8 @@ void mapmanip :: search_map() {
 int YearBorn;
 string category;
 string registered;
-string name;
+string lname;
+bool cont = true;
 
         cout << "Would you like to search by (n)ame, (c)ategory, (y)ear of birth, or (r)egistered"; // need to specify registered or not registered
         char a;
@@ -73,47 +73,48 @@ string name;
 
 
     if(a == 'n'){
-        cin >> name;
-
-        v = print_if(m.begin(), m.end(), if_name, cout, name);
-        while(true)
+        cin >> lname;
+        map<std::string, Student> m1 = m;
+        v = print_if_map_name(m1.begin(), m1.end(), lname);
+        while(cont)
         {
-cout << "Would you like to search by (c)ategory, (y)ear of birth, (r)egistered, or (d)isplay?";
+/*cout << "Would you like to search by (c)ategory, (y)ear of birth, (r)egistered, or (d)isplay?";
     cin >> a;
      switch(a) {
         case 'c':
-        v = print_if(v.begin(), v.end(), if_Ux, cout, category);
+        v = print_if(v.begin(), v.end(), if__Ux,category);
         break;
         case 'y':
-        v = print_if(v.begin(), v.end(), if_YoB, cout, YearBorn);
+        v = print_if(v.begin(), v.end(), if__YoB, YearBorn);
         break;
         case 'r':
-        v = print_if(v.begin(), v.end(), if_regstatus, cout, registered);
+        v = print_if(v.begin(), v.end(), if__regstatus, registered);
         break;
         case 'd':
-        return;
+        cont = false;
+        break;
         default:
         break;
      }
-        }
+        }*/
     }
-    if(a == 'y')
+    /*if(a == 'y')
         cin >> YearBorn;
 
-        v = print_if(m.begin(), m.end(), if_YoB, cout, name);
+        v = print_if(m.begin(), m.end(), if__YoB, YearBorn, 'c');
         while(true)
         {
 cout << "Would you like to search by (c)ategory, (n)ame, (r)egistered, or (d)isplay?";
     cin >> a;
      switch(a) {
         case 'c':
-        v = print_if(v.begin(), v.end(), if_Ux, cout, category);
+        v = print_if(v.begin(), v.end(), if__Ux, category);
         break;
         case 'n':
-        v = print_if(v.begin(), v.end(), if_name, cout, YearBorn);
+        v = print_if(v.begin(), v.end(), if__name, name);
         break;
         case 'r':
-        v = print_if(v.begin(), v.end(), if_regstatus, cout, registered);
+        v = print_if(v.begin(), v.end(), if__regstatus, registered);
         break;
         case 'd':
         return;
@@ -124,20 +125,20 @@ cout << "Would you like to search by (c)ategory, (n)ame, (r)egistered, or (d)isp
     if(a == 'c')
         {
         cin >> category;
-        v = print_if(m.begin(), m.end(), if_Ux, cout, category);
+        v = print_if(m.begin(), m.end(), if__Ux, category, 'c');
         while(true)
         {
 cout << "Would you like to search by (c)ategory, (n)ame, (r)egistered, or (d)isplay?";
     cin >> a;
      switch(a) {
         case 'c':
-        v = print_if(v.begin(), v.end(), if_Ux, cout, category);
+        v = print_if(v.begin(), v.end(), if__Ux, category);
         break;
         case 'n':
-        v = print_if(v.begin(), v.end(), if_name, cout, YearBorn);
+        v = print_if(v.begin(), v.end(), if__name, YearBorn);
         break;
         case 'r':
-        v = print_if(v.begin(), v.end(), if_regstatus, cout, registered);
+        v = print_if(v.begin(), v.end(), if__regstatus, registered);
         break;
         case 'd':
         return;
@@ -145,9 +146,18 @@ cout << "Would you like to search by (c)ategory, (n)ame, (r)egistered, or (d)isp
         break;
             }
         }
-    }
+    }*/
+}
 }
     
+
+void mapmanip::display()
+{
+
+
+    
+}
+
 void mapmanip::begin_new_season()
     {
         string answer;
@@ -164,23 +174,23 @@ void mapmanip::begin_new_season()
     }
 
 
-bool mapmanip::if_name(Student student, std::string &name)
+bool mapmanip::if__name(Student student, std::string &name)
 {
 if (student.get_lname() == name) return 1;
 else return 0;
 
 }
-bool mapmanip::if_YoB(Student student, int YearofB)
+bool mapmanip::if__YoB(Student student, int YearofB)
 {
 if (student.getYoB() == YearofB) return 1;
 else return 0;
 }
-bool mapmanip::if_regstatus(Student student, std::string regstatus)
+bool mapmanip::if__regstatus(Student student, std::string regstatus)
 {
 if ((student.getreg_status()).substr(0) == (regstatus.substr(0))) return 1;
 else return 0;
 }
-bool mapmanip::if_Ux(Student student, std::string &Ux1)
+bool mapmanip::if__Ux(Student student, std::string &Ux1)
 {
 if (student.getUx() == Ux1) return 1;
 else return 0;
@@ -191,7 +201,10 @@ void mapmanip:: main_print()
     cout << "filename :";
     cin >> filename;
     Student student;
+    ofstream out;
+    out.open(filename);
     for(auto itr = m.begin(); itr != m.end(); itr++)
+    
 {
     student = (itr -> second);
     if(student.getUx() == "U17")
@@ -221,4 +234,7 @@ void mapmanip:: main_print()
 }
 
 }
+
+
+
 

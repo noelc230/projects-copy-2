@@ -69,7 +69,7 @@ while(true){
         manip.search_print();
         break;
 
-        //Quit
+        //Quit=
         case 'x':
         return 0;
         break;

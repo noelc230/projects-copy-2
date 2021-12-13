@@ -53,19 +53,25 @@ void mapmanip::input_pair(istream &in) // is fine
  string fname;                                                                       
 int YoB;                                                                             
 
-cout << "First and Last name:" ;                                                         
-  student.inputname(in);                                                               
-  student.inputYoB(in);     
-  student.regstatus();                                    
-  m.insert(pair <string, Student> (student.get_lname() + " " + student.get_fname(), student)); //the get_names return strings                      
+cout << "First name:" ;                                                         
+  student.inputfname(); 
+  cout << "Last name:";
+  student.inputlname();  
+  cout << "Input year of birth (w/n 17 years of the season)";                                                            
+  student.inputYoB();     
+  student.regstatus();  
+  student.IsInUx(season_yr);                              
+  m.insert(pair <string, Student> (student.get_lname() + " " + student.get_fname(), student)); //the get_names return strings  
+
  }
 
-void mapmanip :: search_map() {
+std::vector<Student> mapmanip :: search_map() {
 int YearBorn;
 string category;
 string registered;
 string lname;
 bool cont = true;
+ // initialze since search always creates new vector
 
         cout << "Would you like to search by (n)ame, (c)ategory, (y)ear of birth, or (r)egistered"; // need to specify registered or not registered
         char a;
@@ -78,17 +84,19 @@ bool cont = true;
         v = print_if_map_name(m1.begin(), m1.end(), lname);
         while(cont)
         {
-/*cout << "Would you like to search by (c)ategory, (y)ear of birth, (r)egistered, or (d)isplay?";
+cout << "Would you like to search by (c)ategory, (y)ear of birth, (r)egistered, or (d)isplay?";
     cin >> a;
      switch(a) {
         case 'c':
-        v = print_if(v.begin(), v.end(), if__Ux,category);
+        cin >> category;
+        v = print_if_vector_category(v.begin(), v.end(), category);
         break;
         case 'y':
-        v = print_if(v.begin(), v.end(), if__YoB, YearBorn);
+        cin >> YearBorn;
+        v = print_if_vector_year(v.begin(), v.end(), YearBorn);
         break;
         case 'r':
-        v = print_if(v.begin(), v.end(), if__regstatus, registered);
+        v = print_if_vector_registered(v.begin(), v.end());
         break;
         case 'd':
         cont = false;
@@ -96,66 +104,117 @@ bool cont = true;
         default:
         break;
      }
-        }*/
+        }
     }
-    /*if(a == 'y')
+    if(a == 'y')
+    {
         cin >> YearBorn;
 
-        v = print_if(m.begin(), m.end(), if__YoB, YearBorn, 'c');
-        while(true)
+        v = print_if_map_year(m.begin(), m.end(), YearBorn);
+        while(cont)
         {
 cout << "Would you like to search by (c)ategory, (n)ame, (r)egistered, or (d)isplay?";
     cin >> a;
      switch(a) {
         case 'c':
-        v = print_if(v.begin(), v.end(), if__Ux, category);
+        cin >> category;
+        v = print_if_vector_category(v.begin(), v.end(), category);
         break;
         case 'n':
-        v = print_if(v.begin(), v.end(), if__name, name);
+        cout << "Insert Last Name";
+        cin >> lname;
+        v = print_if_vector_name(v.begin(), v.end(), lname);
         break;
         case 'r':
-        v = print_if(v.begin(), v.end(), if__regstatus, registered);
+        v = print_if_vector_registered(v.begin(), v.end());
         break;
         case 'd':
-        return;
+        cont = false;
+        break;
         default:
         break;
      }
         }
+    }
     if(a == 'c')
         {
         cin >> category;
-        v = print_if(m.begin(), m.end(), if__Ux, category, 'c');
-        while(true)
+        v = print_if_map_category(m.begin(), m.end(), category);
+        while(cont)
         {
 cout << "Would you like to search by (c)ategory, (n)ame, (r)egistered, or (d)isplay?";
     cin >> a;
      switch(a) {
         case 'c':
-        v = print_if(v.begin(), v.end(), if__Ux, category);
+        cin >> category;
+        v = print_if_vector_category(v.begin(), v.end(), category);
         break;
         case 'n':
-        v = print_if(v.begin(), v.end(), if__name, YearBorn);
+        cout << "Insert Last Name";
+        cin >> lname;
+        v = print_if_vector_name(v.begin(), v.end(), lname);
         break;
         case 'r':
-        v = print_if(v.begin(), v.end(), if__regstatus, registered);
+        v = print_if_vector_registered(v.begin(), v.end());
         break;
         case 'd':
-        return;
+        cont= false;
+        break;
         default:
         break;
             }
         }
-    }*/
-}
-}
-    
+    }
 
-void mapmanip::display()
+
+
+if(a == 'r'){
+
+        map<std::string, Student> m1 = m;
+        v = print_if_map_registered(m1.begin(), m1.end());
+        while(cont)
+        {
+
+
+        }
+}
+std::vector<Student> v1 = v;
+return (v1);  
+}
+
+void mapmanip::maindisplay()
 {
+int regcount = 0;
+int unregcount=0;
+Student student;
+cout <<"The number of total players: ";
+cout << m.size() << endl;
+for (auto itr = m.begin(); itr != m.end(); itr++)
+{
+student = (itr -> second);
+if(student.getreg_status() == "Registered")
+{regcount++;}
+else {unregcount++;}
+cout << "Registered :" << regcount << endl;
+cout << "Unregistered: " << unregcount << endl;
+}
 
+}
 
-    
+void mapmanip::next(std::vector<Student>::iterator pos){
+if(pos != (v.end() -1))
+{pos ++;}
+else 
+{pos = v.begin();}
+
+}
+
+void mapmanip:: prev(std::vector<Student>::iterator pos)
+{
+if(pos != (v.begin()))
+{pos --;}
+else 
+{pos = v.end();}
 }
 
 void mapmanip::begin_new_season()
@@ -172,9 +231,14 @@ void mapmanip::begin_new_season()
         else return;
 
     }
+//what can I do with season year... get season year function to use IsInUx
+int mapmanip::getseasonyr()
+{
+    return(season_yr);
+}
 
 
-bool mapmanip::if__name(Student student, std::string &name)
+/*bool mapmanip::if__name(Student student, std::string &name)
 {
 if (student.get_lname() == name) return 1;
 else return 0;
@@ -194,7 +258,7 @@ bool mapmanip::if__Ux(Student student, std::string &Ux1)
 {
 if (student.getUx() == Ux1) return 1;
 else return 0;
-}
+}*/
 
 void mapmanip:: main_print()
 {
@@ -203,6 +267,8 @@ void mapmanip:: main_print()
     Student student;
     ofstream out;
     out.open(filename);
+    if(!out)
+    {cout << "Error: Could not open file";}
     for(auto itr = m.begin(); itr != m.end(); itr++)
     
 {
@@ -235,6 +301,46 @@ void mapmanip:: main_print()
 
 }
 
+void mapmanip::searchdisplay(int number, std::vector<Student>::iterator pos, std::vector<Student> a)
+{
+cout << (*pos).get_fname() << " " << (*pos).get_lname() << " " << (*pos).getreg_status() << endl;
+cout << (*pos).getUx() << endl;
+cout << number << "/" << a.size();
+}
 
 
+void mapmanip::edit(std::vector<Student>::iterator pos)
+{
+cout << "What would you like to edit:" << endl;
+cout << "Name (n), Year of Birth (y), Reg Status(r)? " <<endl;
+char a;
+string name;
+cin >> a;
+if(a == 'n')
+{
+    name = (*pos).get_lname();
+    (*pos).inputfname(); (*pos).inputlname();
+m.erase(name);
+m.insert(pair <string, Student> ((*pos).get_lname() + (*pos).get_fname(), *pos));
 
+
+}
+if(a == 'y')
+{
+    name = (*pos).get_lname();
+    (*pos).inputYoB();
+m.erase(name);
+m.insert(pair <string, Student> ((*pos).get_lname() + (*pos).get_fname(), *pos));
+
+}
+if(a == 'r')
+{
+    name = (*pos).get_lname();
+    (*pos).regstatus();
+m.erase(name);
+m.insert(pair <string, Student> ((*pos).get_lname() + (*pos).get_fname(), *pos));
+
+}
+}
+
+// finish edit

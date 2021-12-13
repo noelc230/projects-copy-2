@@ -1,6 +1,5 @@
 #include <iostream>
 #include "map.h" // originally buffer.h
-#include "classbuild.h" 
 using namespace std;
 
 int main()
@@ -11,7 +10,8 @@ int main()
     string target;
     int season_yr;
     string answer;
-    
+    vector<Student> v1;
+    int n = 1;
     //dont think we need an option for height
 
 while(true){
@@ -32,7 +32,7 @@ while(true){
       break;
 
         case 'p': 
-        /*manip.print();*/  //prints into a file //no need to put filename here 
+        manip.main_print();  //prints into a file //no need to put filename here 
         break;
 
         //Quit
@@ -41,7 +41,7 @@ while(true){
         break;
 
         case 'd':
-        manip.display();
+        manip.maindisplay();
         break;
 
         //Search
@@ -49,7 +49,9 @@ while(true){
         // need to put switch statement stuff here instead of outside
         //main view only shows stats and prelimiary options
        
-        manip.search_map();
+        v1 = manip.search_map();
+       vector<Student>::iterator position; 
+       position = v1.begin();
         while(true)
              {
          cout << "(n)ext (p)revious (e)dit p(r)int e(x)it (s)top" ; //something like this probably more stuff
@@ -57,13 +59,25 @@ while(true){
         switch(a){
 
         case 'n': 
-        manip.next();
+        manip.next(position);
+        n++;
+        if(n >= v1.size())
+        n=1;
+        manip.searchdisplay(n, position, v1);
         break;
 
         //Previous
         case 'p':
-        manip.prev();
+        manip.prev(position);
+        n--;
+        if(n = 0)
+        n = v1.size();
+        manip.searchdisplay(n, position, v1);
         break;
+
+        case 'e':
+        manip.edit(position);
+
 
         case 'r':
         manip.search_print();
@@ -74,12 +88,9 @@ while(true){
         return 0;
         break;
              }
-             
+             break;
              }
 
-        break;
-        default:
-        break;
     }
 
 }

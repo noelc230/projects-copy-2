@@ -11,14 +11,15 @@ public:
 
   int getYoB(){return(YoB);}                                      
   std::string getUx(){return(Ux);}                                                     
-  string getreg_status(){if(reg_status) return("Registered");                     
+  std::string getreg_status(){if(reg_status) return("Registered");                     
     else return ("Not Registered") ;}                                             
 
   void IsInUx(const int &season_yr); // changes value of private Ux to some string i\
 ndicated by the division names... list of if statements... subtracts season_yr by Yo\
 B                                                                                    
-      void inputname(std::istream &in){in >> fname >> lname;}                                  
-      void inputYoB(std::istream &in){in >> YoB;}                                                      
+      void inputfname(){std::cin >> fname;}  
+      void inputlname(){std::cin >> lname;}                                
+      void inputYoB(){std::cin >> YoB;}                                                      
 
 // what would i like with this? ... I would like to take some season year - some yea\
 r of birth and get the int... then maybe create a vector of vectors????              

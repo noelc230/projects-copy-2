@@ -1,0 +1,78 @@
+Doc.txt
+
+Hello! Welcome to the Soccer Roster!!!
+
+We have created multiple components for this roster.
+- map.cpp
+- map.h 
+- classbuild.cpp
+- classbuild.h 
+- ui.cpp
+- makefile
+
+------------classbuild.h 
+    We have created a class with the intent of storing the information
+of the potential player within it. This class is named Student
+and will create objects as such.
+
+    Student holds various private data points that are accessed
+and changed through various member functions. 
+Such functions include:
+{
+regstatus()
+getYoB()                            
+getUx()                                            
+getreg_status()                                          
+IsInUx()                 
+inputfname()
+inputlname()                          
+inputYoB()
+}
+
+The input functions initialize and change fname,lname, and YoB. The get access functions allow one to view said variables. IsInUx takes a season year and initializes the category via comparisons w/ the of the student and the age ranges of the soccer categories. This function, as well as the accessor and manipulator functions, are called in the map files to edit and manipulate the individual upended students.
+
+-------------------------map.h
+Our map files contain a class, mapmanip, and two kinds of functions in anticipation
+of the development of our UI, the main functions and the search functions.
+
+The main functions operate w/n the initial window and are
+defined as such:
+{
+begin_new_season()
+input_pair()
+main_print()
+maindisplay()
+search_map()
+}
+
+-Begin new season asks for a season year and saves this value
+to be used to generate the category for a student.
+-Input pair initializes all the data for a single student and 
+updates the map by upending the student, accessible by last name key.
+-Main print reads to some file and records the data whereas
+maindisplay displays relevant statistics regarding the information
+in the container
+- Search map returns a vector that corresponds to the last name
+of the student being searched for. 
+A new switch statement is then executed when search is called which lets you
+filter the public vector through as many searches as needed without
+corrupting the original map file.
+
+The switch statement then takes you to the search window in the UI.
+This search window utilizes the search type membet functions composed as such.
+{
+    manip.next()
+    manip.searchdisplay()
+    manip.prev()
+    manip.searchdisplay()
+    manip.edit()
+    manip.search_print()
+}
+
+Next, previous and edit take iterators and adjust the positions
+while making each element accessible. Edit returns 
+an adjusted element back to the map whilst deleting the pre-edited element.
+When next and previous are called in the UI the student being pointed
+to is displayed.
+Search print then takes the vector contents and prints to a viewable
+file. 
